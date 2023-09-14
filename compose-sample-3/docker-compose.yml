@@ -8,11 +8,12 @@
 services:
   proxy:
     build:
-      context: .
+      context: .  #build the dockerfile in this current directory that it's in 
       dockerfile: nginx.Dockerfile
+    image: nginx-custom  # i want it named nginx-custom when it gets built
     ports:
       - '80:80'
   web:
     image: httpd
     volumes:
-      - ./html:/usr/local/apache2/htdocs/
+      - ./html:/usr/local/apache2/htdocs/ #Mounted some HTml source files that i have into apache2
